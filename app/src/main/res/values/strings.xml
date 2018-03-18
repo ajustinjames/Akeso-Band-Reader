@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Akeso Band Reader</string>
+    <string name="waiting">Please tap band to back of phone.</string>
+</resources>
