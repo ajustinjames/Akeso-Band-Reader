@@ -103,12 +103,12 @@ public class MainActivity extends AppCompatActivity {
         }
 
         NdefRecord[] recs = msgs[0].getRecords();
-        if (recs.length != 8){
+        if (recs.length != 7){
             Toast.makeText(getApplicationContext(),"Non Akeso Band Scanned", Toast.LENGTH_LONG);
             return;
         }
 
-        for (int i=0; i<8; i++){
+        for (int i=0; i<7; i++){
             byte[] payload = recs[i].getPayload();
             String text = new String(payload);
             displays[i].setText(text);
