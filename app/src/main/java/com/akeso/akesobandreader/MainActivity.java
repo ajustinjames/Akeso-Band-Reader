@@ -1,6 +1,7 @@
 package com.akeso.akesobandreader;
 
 
+import android.app.Fragment;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
@@ -13,6 +14,11 @@ import android.os.Bundle;
 import android.nfc.Tag;
 import android.nfc.tech.*;
 import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -65,37 +71,44 @@ public class MainActivity extends AppCompatActivity {
         displays[6] = (TextView) findViewById(R.id.notes1);
         displays[7] = (TextView) findViewById(R.id.main);
 
-        //wait for an nfc tag to be tapped to the device
-        readFromIntent(getIntent());
 
-        pendingIntent = PendingIntent.getActivity(this, 0, new Intent(this, getClass()).addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP), 0);
-        IntentFilter tagDetected = new IntentFilter(NfcAdapter.ACTION_TAG_DISCOVERED);
-        tagDetected.addCategory(Intent.CATEGORY_DEFAULT);
 
     }
 
 
-    //read nfc tag
-    private void readFromIntent(Intent intent){
-        userData = new String[8];
-
-        String action = intent.getAction();
-        if (NfcAdapter.ACTION_TAG_DISCOVERED.equals(action) || NfcAdapter.ACTION_TECH_DISCOVERED.equals(action) || NfcAdapter.ACTION_NDEF_DISCOVERED.equals(action)){ //tag was discovered
-            Parcelable[] raw = intent.getParcelableArrayExtra(NfcAdapter.EXTRA_NDEF_MESSAGES);
-            NdefMessage[] msgs = null;
-            if (raw != null){
-                msgs = new NdefMessage[raw.length];
-                for (int i = 0; i<raw.length; i++){
-                    msgs[i] = (NdefMessage) raw[i];
-                }
-                if (msgs.length > 1 || msgs.length <1){
-                    Toast.makeText(getApplicationContext(),"Non Akeso Band Scanned", Toast.LENGTH_LONG);
-                    return;
-                }
-            }
-            displayScan(msgs);
-        }
+    @Override
+    protected void onNewIntent(Intent intent){
+        Toast.makeText(this, "NFC Tag Found", Toast.LENGTH_LONG).show();
+        super.onNewIntent(intent);
     }
+
+
+    @Override
+    protected void onResume(){
+        Intent intent = new Intent(this, MainActivity.class);
+        intent.addFlags(Intent.FLAG_RECEIVER_REPLACE_PENDING);
+
+        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0,
+                intent, 0);
+        IntentFilter[] intentFilter = new IntentFilter[] {};
+
+        nAdapter.enableForegroundDispatch(this, pendingIntent, intentFilter,
+                null);
+
+        super.onResume();
+    }
+
+    @Override
+    protected void onPause() {
+
+        nAdapter.disableForegroundDispatch(this);
+
+        super.onPause();
+    }
+
+
+
+
 
     private void displayScan(NdefMessage[] msgs){
         if (msgs == null || msgs.length == 0){
