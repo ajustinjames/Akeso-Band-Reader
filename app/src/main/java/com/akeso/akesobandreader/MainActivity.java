@@ -80,6 +80,16 @@ public class MainActivity extends AppCompatActivity {
     protected void onNewIntent(Intent intent){
         Toast.makeText(this, "NFC Tag Found", Toast.LENGTH_LONG).show();
         super.onNewIntent(intent);
+        Parcelable[] raw = intent.getParcelableArrayExtra(nAdapter.EXTRA_NDEF_MESSAGES);
+        NdefMessage[] msg = null;
+        if(raw != null){
+            msg = new NdefMessage[raw.length];
+            for (int i=0; i< raw.length; i++){
+                msg[i] = (NdefMessage) raw[i];
+            }
+        }
+
+        displayScan(msg);
     }
 
 
@@ -124,7 +134,12 @@ public class MainActivity extends AppCompatActivity {
         for (int i=0; i<7; i++){
             byte[] payload = recs[i].getPayload();
             String text = new String(payload);
+            text = text.substring(3,text.length());
             displays[i].setText(text);
         }
+
+        Date date = new Date();
+        String scan = "Scanned: " + date.toString();
+        displays[7].setText(scan);
     }
 }
