@@ -16,6 +16,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:text="@string/waiting"
+        android:textAppearance="@android:style/TextAppearance.Material.Medium"
         app:layout_constraintBottom_toTopOf="@+id/name1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -44,15 +45,15 @@
         android:layout_marginTop="16dp"
         android:text="Allergies"
         app:layout_constraintEnd_toStartOf="@+id/allergies1"
-        app:layout_constraintHorizontal_bias="0.279"
+        app:layout_constraintHorizontal_bias="0.315"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/name" />
+        app:layout_constraintTop_toBottomOf="@+id/name1" />
 
     <TextView
         android:id="@+id/medication"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
+        android:layout_marginStart="28dp"
         android:layout_marginTop="16dp"
         android:text="Medication"
         app:layout_constraintStart_toStartOf="parent"
@@ -62,29 +63,29 @@
         android:id="@+id/conditions"
         android:layout_width="wrap_content"
         android:layout_height="23dp"
-        android:layout_marginStart="24dp"
+        android:layout_marginStart="28dp"
         android:layout_marginTop="16dp"
-        android:text="Medical Condition"
+        android:text="Medical Conditions"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/medication" />
+        app:layout_constraintTop_toBottomOf="@+id/medication1" />
 
     <TextView
         android:id="@+id/contact"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="8dp"
         android:text="Emergency Contact"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/conditions"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/conditions1"
+        app:layout_constraintVertical_bias="0.046" />
 
     <TextView
         android:id="@+id/name1"
         android:layout_width="252dp"
-        android:layout_height="21dp"
+        android:layout_height="wrap_content"
         android:layout_marginEnd="36dp"
         android:layout_marginTop="88dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -93,7 +94,7 @@
     <TextView
         android:id="@+id/allergies1"
         android:layout_width="253dp"
-        android:layout_height="26dp"
+        android:layout_height="wrap_content"
         android:layout_marginEnd="36dp"
         android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -102,10 +103,10 @@
     <TextView
         android:id="@+id/medication1"
         android:layout_width="228dp"
-        android:layout_height="23dp"
+        android:layout_height="wrap_content"
         android:layout_marginEnd="36dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/medication"
@@ -114,7 +115,7 @@
     <TextView
         android:id="@+id/conditions1"
         android:layout_width="202dp"
-        android:layout_height="28dp"
+        android:layout_height="wrap_content"
         android:layout_marginEnd="36dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
@@ -125,29 +126,30 @@
 
     <TextView
         android:id="@+id/contact1"
-        android:layout_width="183dp"
-        android:layout_height="25dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="16dp"
+        android:layout_width="190dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="36dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="24dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.517"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/contact"
         app:layout_constraintTop_toBottomOf="@+id/conditions1" />
 
     <TextView
         android:id="@+id/contact2"
-        android:layout_width="187dp"
-        android:layout_height="27dp"
+        android:layout_width="190dp"
+        android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="160dp"
         android:layout_marginTop="12dp"
         app:layout_constraintBottom_toTopOf="@+id/notes1"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.471"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/contact1"
-        app:layout_constraintVertical_bias="0.028" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/notes"
@@ -160,16 +162,16 @@
         android:text="Customer Notes"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/notes1"
-        app:layout_constraintHorizontal_bias="0.512"
+        app:layout_constraintHorizontal_bias="0.454"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/contact"
-        app:layout_constraintVertical_bias="0.262" />
+        app:layout_constraintTop_toBottomOf="@+id/contact2"
+        app:layout_constraintVertical_bias="0.096" />
 
     <TextView
         android:id="@+id/notes1"
         android:layout_width="213dp"
-        android:layout_height="96dp"
-        android:layout_marginBottom="160dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="272dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         app:layout_constraintBottom_toBottomOf="parent"

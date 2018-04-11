@@ -20,6 +20,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
+import android.widget.ArrayAdapter;
+import android.widget.ListAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 import java.io.IOException;
@@ -49,14 +52,14 @@ public class MainActivity extends AppCompatActivity {
         nAdapter = NfcAdapter.getDefaultAdapter(this);
         if (nAdapter == null) {
             //nfc not supported by your advice
-            Toast.makeText(getApplicationContext(), "NFC not supported by this device", Toast.LENGTH_LONG);
+            Toast.makeText(getApplicationContext(), "NFC not supported by this device", Toast.LENGTH_LONG).show();
             this.finish();
             ;
         }
 
         if (!nAdapter.isEnabled()) {
             //nfc disabled
-            Toast.makeText(getApplicationContext(), "NFC radio is off, please turn it on.", Toast.LENGTH_LONG);
+            Toast.makeText(getApplicationContext(), "NFC radio is off, please turn it on.", Toast.LENGTH_LONG).show();
             this.finish();
         }
 
@@ -78,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onNewIntent(Intent intent){
-        Toast.makeText(this, "NFC Tag Found", Toast.LENGTH_LONG).show();
+        Toast.makeText(this, "NFC Tag Found", Toast.LENGTH_SHORT).show();
         super.onNewIntent(intent);
         Parcelable[] raw = intent.getParcelableArrayExtra(nAdapter.EXTRA_NDEF_MESSAGES);
         NdefMessage[] msg = null;
@@ -127,7 +130,7 @@ public class MainActivity extends AppCompatActivity {
 
         NdefRecord[] recs = msgs[0].getRecords();
         if (recs.length != 7){
-            Toast.makeText(getApplicationContext(),"Non Akeso Band Scanned", Toast.LENGTH_LONG);
+            Toast.makeText(getApplicationContext(),"Non Akeso Band Scanned", Toast.LENGTH_LONG).show();
             return;
         }
 
