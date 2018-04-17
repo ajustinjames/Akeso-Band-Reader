@@ -2,11 +2,9 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
     tools:context="com.akeso.akesobandreader.MainActivity">
-
-
     <TextView
         android:id="@+id/main"
         android:layout_width="wrap_content"
@@ -17,165 +15,225 @@
         android:layout_marginTop="8dp"
         android:text="@string/waiting"
         android:textAppearance="@android:style/TextAppearance.Material.Medium"
-        app:layout_constraintBottom_toTopOf="@+id/name1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.547" />
+        app:layout_constraintVertical_bias="0.547"
+        android:gravity="center"/>
 
-    <TextView
-        android:id="@+id/name"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="88dp"
-        android:text="Name"
-        app:layout_constraintEnd_toStartOf="@+id/name1"
-        app:layout_constraintHorizontal_bias="0.08"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/allergies"
-        android:layout_width="60dp"
-        android:layout_height="20dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="24dp"
-        android:text="Allergies"
-        app:layout_constraintEnd_toStartOf="@+id/allergies1"
-        app:layout_constraintHorizontal_bias="0.3"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/name1" />
-
-    <TextView
-        android:id="@+id/medication"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="44dp"
-        android:text="Medication"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/allergies" />
-
-    <TextView
-        android:id="@+id/conditions"
-        android:layout_width="wrap_content"
-        android:layout_height="23dp"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="16dp"
-        android:text="Medical Conditions"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/medication1" />
-
-    <TextView
-        android:id="@+id/contact"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginStart="28dp"
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="558dp"
         android:layout_marginTop="8dp"
-        android:text="Emergency Contact"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/conditions1"
-        app:layout_constraintVertical_bias="0.05" />
+        app:layout_constraintTop_toBottomOf="@+id/main">
 
-    <TextView
-        android:id="@+id/name1"
-        android:layout_width="252dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="36dp"
-        android:layout_marginTop="88dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/allergies1"
-        android:layout_width="251dp"
-        android:layout_height="42dp"
-        android:layout_marginEnd="36dp"
-        android:layout_marginTop="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/name1" />
+            <TableLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:stretchColumns="1">
 
-    <TextView
-        android:id="@+id/medication1"
-        android:layout_width="250dp"
-        android:layout_height="38dp"
-        android:layout_marginEnd="36dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="24dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.894"
-        app:layout_constraintStart_toEndOf="@+id/medication"
-        app:layout_constraintTop_toBottomOf="@+id/allergies1" />
+                <TableRow android:gravity="center">
 
-    <TextView
-        android:id="@+id/conditions1"
-        android:layout_width="202dp"
-        android:layout_height="33dp"
-        android:layout_marginEnd="36dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/conditions"
-        app:layout_constraintTop_toBottomOf="@+id/medication1" />
+                    <TextView
+                        android:id="@+id/name"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:padding="3dip"
+                        android:text="@string/name"
+                        android:textAppearance="@android:style/TextAppearance.Material.Medium"
+                        android:textStyle="bold" />
+                </TableRow>
+                <TableRow android:gravity="center">
 
-    <TextView
-        android:id="@+id/contact1"
-        android:layout_width="190dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="36dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="24dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/contact"
-        app:layout_constraintTop_toBottomOf="@+id/conditions1" />
+                    <TextView
+                        android:id="@+id/name1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:padding="3dip"
+                        android:text=""
+                        android:textAppearance="@android:style/TextAppearance.Material.Large" />
+                </TableRow>
+                <TableRow android:gravity="center">
 
-    <TextView
-        android:id="@+id/contact2"
-        android:layout_width="190dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="160dp"
-        android:layout_marginTop="12dp"
-        app:layout_constraintBottom_toTopOf="@+id/notes1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.471"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/contact1"
-        app:layout_constraintVertical_bias="0.0" />
+                    <TextView
+                        android:id="@+id/allergies"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:padding="3dip"
+                        android:text="@string/allergies"
+                        android:textAppearance="@android:style/TextAppearance.Material.Medium"
+                        android:textStyle="bold" />
+                </TableRow>
+                <TableRow android:gravity="center">
 
-    <TextView
-        android:id="@+id/notes"
-        android:layout_width="wrap_content"
-        android:layout_height="24dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:text="Customer Notes"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/notes1"
-        app:layout_constraintHorizontal_bias="0.454"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/contact2"
-        app:layout_constraintVertical_bias="0.096" />
+                    <TextView
+                        android:id="@+id/allergies1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:padding="3dip"
+                        android:text=""
+                        android:textAppearance="@android:style/TextAppearance.Material.Large" />
+                </TableRow>
+                <TableRow android:gravity="center">
 
-    <TextView
-        android:id="@+id/notes1"
-        android:layout_width="213dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="200dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.846"
-        app:layout_constraintStart_toStartOf="parent" />
+                    <TextView
+                        android:id="@+id/conditions"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:padding="3dip"
+                        android:text="@string/conditions"
+                        android:textAppearance="@android:style/TextAppearance.Material.Medium"
+                        android:textStyle="bold" />
+                </TableRow>
+                <TableRow android:gravity="center">
+
+                    <TextView
+                        android:id="@+id/conditions1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:padding="3dip"
+                        android:text=""
+                        android:textAppearance="@android:style/TextAppearance.Material.Large" />
+                </TableRow>
+                <TableRow android:gravity="center">
+
+                    <TextView
+                        android:id="@+id/medications"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:padding="3dip"
+                        android:text="@string/medications"
+                        android:textAppearance="@android:style/TextAppearance.Material.Medium"
+                        android:textStyle="bold" />
+                </TableRow>
+                <TableRow android:gravity="center">
+
+                    <TextView
+                        android:id="@+id/medications1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:padding="3dip"
+                        android:text=""
+                        android:textAppearance="@android:style/TextAppearance.Material.Large" />
+                </TableRow>
+                <TableRow android:gravity="center">
+
+                    <TextView
+                        android:id="@+id/contact"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:padding="3dip"
+                        android:text="@string/contact"
+                        android:textAppearance="@android:style/TextAppearance.Material.Medium"
+                        android:textStyle="bold" />
+                </TableRow>
+                <TableRow android:gravity="center">
+
+                    <TextView
+                        android:id="@+id/contact1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text=""
+                        android:textAppearance="@android:style/TextAppearance.Material.Large" />
+                </TableRow>
+                <TableRow android:gravity="center">
+
+                    <TextView
+                        android:id="@+id/contact2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text=""
+                        android:textAppearance="@android:style/TextAppearance.Material.Large" />
+                </TableRow>
+                <TableRow android:gravity="center">
+
+                    <TextView
+                        android:id="@+id/insurance"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:padding="3dip"
+                        android:text="@string/insurance"
+                        android:textAppearance="@android:style/TextAppearance.Material.Medium"
+                        android:textStyle="bold" />
+                </TableRow>
+
+                <TableRow android:gravity="center">
+
+                    <TextView
+                        android:id="@+id/insurance1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:padding="3dip"
+                        android:text=""
+                        android:textAppearance="@android:style/TextAppearance.Material.Large" />
+                </TableRow>
+                <TableRow android:gravity="center">
+
+                    <TextView
+                        android:id="@+id/insurance0"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:padding="3dip"
+                        android:text="@string/insuranceid"
+                        android:textAppearance="@android:style/TextAppearance.Material.Medium"
+                        android:textStyle="bold" />
+                </TableRow>
+                <TableRow android:gravity="center">
+
+                    <TextView
+                        android:id="@+id/insurance2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:padding="3dip"
+                        android:text=""
+                        android:textAppearance="@android:style/TextAppearance.Material.Large" />
+                </TableRow>
+                <TableRow android:gravity="center">
+
+                    <TextView
+                        android:id="@+id/notes"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:padding="3dip"
+                        android:text="@string/notes"
+                        android:textAppearance="@android:style/TextAppearance.Material.Medium"
+                        android:textStyle="bold" />
+                </TableRow>
+                <TableRow android:gravity="center">
+
+                    <TextView
+                        android:id="@+id/notes1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:padding="3dip"
+                        android:text=""
+                        android:textAppearance="@android:style/TextAppearance.Material.Large" />
+                </TableRow>
+
+            </TableLayout>
+        </RelativeLayout>
+
+    </ScrollView>
 </android.support.constraint.ConstraintLayout>

@@ -64,15 +64,17 @@ public class MainActivity extends AppCompatActivity {
         }
 
         //set up textviews so we can edit what they display
-        displays = new TextView[8];
+        displays = new TextView[10];
         displays[0] = (TextView) findViewById(R.id.name1);
         displays[1] = (TextView) findViewById(R.id.allergies1);
-        displays[2] = (TextView) findViewById(R.id.medication1);
+        displays[2] = (TextView) findViewById(R.id.medications1);
         displays[3] = (TextView) findViewById(R.id.conditions1);
         displays[4] = (TextView) findViewById(R.id.contact1);
         displays[5] = (TextView) findViewById(R.id.contact2);
-        displays[6] = (TextView) findViewById(R.id.notes1);
-        displays[7] = (TextView) findViewById(R.id.main);
+        displays[6] = (TextView) findViewById(R.id.insurance1);
+        displays[7] = (TextView) findViewById(R.id.insurance2);
+        displays[8] = (TextView) findViewById(R.id.notes1);
+        displays[9] = (TextView) findViewById(R.id.main);
 
 
 
@@ -129,12 +131,12 @@ public class MainActivity extends AppCompatActivity {
         }
 
         NdefRecord[] recs = msgs[0].getRecords();
-        if (recs.length != 7){
+        if (recs.length != 9){
             Toast.makeText(getApplicationContext(),"Non Akeso Band Scanned", Toast.LENGTH_LONG).show();
             return;
         }
 
-        for (int i=0; i<7; i++){
+        for (int i=0; i<9; i++){
             byte[] payload = recs[i].getPayload();
             String text = new String(payload);
             text = text.substring(3,text.length());

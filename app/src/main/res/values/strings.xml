@@ -2,4 +2,12 @@
     <string name="app_name">Akeso Band Reader</string>
     <string name="waiting">Please tap band to back of phone.</string>
     <string name="title_splash">Akeso Band</string>
+    <string name="name"><u>Name</u></string>
+    <string name="allergies"><u>Allergies</u></string>
+    <string name="medications"><u>Medications</u></string>
+    <string name="conditions"><u>Medical Conditions</u></string>
+    <string name="contact"><u>Emergency Contact</u></string>
+    <string name="insurance"><u>Insurance Provider</u></string>
+    <string name="insuranceid"><u>Insurance ID Number</u></string>
+    <string name="notes"><u>Customer Notes</u></string>
 </resources>
