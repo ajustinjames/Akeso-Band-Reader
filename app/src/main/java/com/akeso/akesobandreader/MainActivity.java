@@ -145,6 +145,6 @@ public class MainActivity extends AppCompatActivity {
 
         Date date = new Date();
         String scan = "Scanned: " + date.toString();
-        displays[7].setText(scan);
+        displays[9].setText(scan);
     }
 }
