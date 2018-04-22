@@ -232,7 +232,21 @@
                         android:textAppearance="@android:style/TextAppearance.Material.Large" />
                 </TableRow>
 
+                <TableRow android:gravity="center">
+
+                    <Button
+                        android:id="@+id/button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="@color/colorAccent"
+                        android:onClick="toClear"
+                        android:text="@string/Clear" />
+
+                </TableRow>
+
             </TableLayout>
+
+
         </RelativeLayout>
 
     </ScrollView>

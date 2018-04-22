@@ -1,7 +1,6 @@
 package com.akeso.akesobandreader;
 
 
-import android.app.Fragment;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
@@ -28,6 +27,8 @@ import android.widget.Toast;
 import java.io.IOException;
 import java.nio.charset.Charset;
 import java.util.Date;
+import java.util.concurrent.TimeUnit;
+
 import android.nfc.NdefMessage;
 
 public class MainActivity extends AppCompatActivity {
@@ -146,5 +147,18 @@ public class MainActivity extends AppCompatActivity {
         Date date = new Date();
         String scan = "Scanned: " + date.toString();
         displays[9].setText(scan);
+
+    }
+
+    public void toClear(View v){
+        clear();
+    }
+
+    public void clear(){
+        for (int i = 0; i<9; i++){
+            displays[i].setText("");
+
+        }
+        displays[9].setText(R.string.waiting);
     }
 }

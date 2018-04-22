@@ -10,4 +10,5 @@
     <string name="insurance"><u>Insurance Provider</u></string>
     <string name="insuranceid"><u>Insurance ID Number</u></string>
     <string name="notes"><u>Customer Notes</u></string>
+    <string name="Clear">Clear Scan</string>
 </resources>
