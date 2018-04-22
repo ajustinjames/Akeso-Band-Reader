@@ -68,8 +68,8 @@ public class MainActivity extends AppCompatActivity {
         displays = new TextView[10];
         displays[0] = (TextView) findViewById(R.id.name1);
         displays[1] = (TextView) findViewById(R.id.allergies1);
-        displays[2] = (TextView) findViewById(R.id.medications1);
-        displays[3] = (TextView) findViewById(R.id.conditions1);
+        displays[2] = (TextView) findViewById(R.id.conditions1);
+        displays[3] = (TextView) findViewById(R.id.medications1);
         displays[4] = (TextView) findViewById(R.id.contact1);
         displays[5] = (TextView) findViewById(R.id.contact2);
         displays[6] = (TextView) findViewById(R.id.insurance1);
