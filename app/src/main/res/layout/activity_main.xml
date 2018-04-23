@@ -25,8 +25,11 @@
     <ScrollView
         android:layout_width="fill_parent"
         android:layout_height="558dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintTop_toBottomOf="@+id/main">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/main"
+        app:layout_constraintVertical_bias="0.0">
 
         <RelativeLayout
             android:layout_width="fill_parent"
@@ -41,25 +44,27 @@
 
                     <TextView
                         android:id="@+id/name"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:gravity="center"
                         android:padding="3dip"
                         android:text="@string/name"
                         android:textAppearance="@android:style/TextAppearance.Material.Medium"
                         android:textStyle="bold" />
                 </TableRow>
+
                 <TableRow android:gravity="center">
 
                     <TextView
                         android:id="@+id/name1"
-                        android:layout_width="wrap_content"
+                        android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:padding="3dip"
                         android:text=""
                         android:textAppearance="@android:style/TextAppearance.Material.Large" />
                 </TableRow>
+
                 <TableRow android:gravity="center">
 
                     <TextView
@@ -72,6 +77,7 @@
                         android:textAppearance="@android:style/TextAppearance.Material.Medium"
                         android:textStyle="bold" />
                 </TableRow>
+
                 <TableRow android:gravity="center">
 
                     <TextView
@@ -83,6 +89,7 @@
                         android:text=""
                         android:textAppearance="@android:style/TextAppearance.Material.Large" />
                 </TableRow>
+
                 <TableRow android:gravity="center">
 
                     <TextView
@@ -95,17 +102,19 @@
                         android:textAppearance="@android:style/TextAppearance.Material.Medium"
                         android:textStyle="bold" />
                 </TableRow>
+
                 <TableRow android:gravity="center">
 
                     <TextView
                         android:id="@+id/conditions1"
-                        android:layout_width="wrap_content"
+                        android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:padding="3dip"
                         android:text=""
                         android:textAppearance="@android:style/TextAppearance.Material.Large" />
                 </TableRow>
+
                 <TableRow android:gravity="center">
 
                     <TextView
@@ -118,6 +127,7 @@
                         android:textAppearance="@android:style/TextAppearance.Material.Medium"
                         android:textStyle="bold" />
                 </TableRow>
+
                 <TableRow android:gravity="center">
 
                     <TextView
@@ -129,6 +139,7 @@
                         android:text=""
                         android:textAppearance="@android:style/TextAppearance.Material.Large" />
                 </TableRow>
+
                 <TableRow android:gravity="center">
 
                     <TextView
@@ -141,6 +152,7 @@
                         android:textAppearance="@android:style/TextAppearance.Material.Medium"
                         android:textStyle="bold" />
                 </TableRow>
+
                 <TableRow android:gravity="center">
 
                     <TextView
@@ -151,6 +163,7 @@
                         android:text=""
                         android:textAppearance="@android:style/TextAppearance.Material.Large" />
                 </TableRow>
+
                 <TableRow android:gravity="center">
 
                     <TextView
@@ -161,6 +174,7 @@
                         android:text=""
                         android:textAppearance="@android:style/TextAppearance.Material.Large" />
                 </TableRow>
+
                 <TableRow android:gravity="center">
 
                     <TextView
@@ -185,6 +199,7 @@
                         android:text=""
                         android:textAppearance="@android:style/TextAppearance.Material.Large" />
                 </TableRow>
+
                 <TableRow android:gravity="center">
 
                     <TextView
@@ -197,6 +212,7 @@
                         android:textAppearance="@android:style/TextAppearance.Material.Medium"
                         android:textStyle="bold" />
                 </TableRow>
+
                 <TableRow android:gravity="center">
 
                     <TextView
@@ -208,6 +224,7 @@
                         android:text=""
                         android:textAppearance="@android:style/TextAppearance.Material.Large" />
                 </TableRow>
+
                 <TableRow android:gravity="center">
 
                     <TextView
@@ -220,6 +237,7 @@
                         android:textAppearance="@android:style/TextAppearance.Material.Medium"
                         android:textStyle="bold" />
                 </TableRow>
+
                 <TableRow android:gravity="center">
 
                     <TextView
@@ -236,7 +254,7 @@
 
                     <Button
                         android:id="@+id/button"
-                        android:layout_width="wrap_content"
+                        android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:backgroundTint="@color/colorAccent"
                         android:onClick="toClear"

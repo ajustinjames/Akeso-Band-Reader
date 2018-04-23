@@ -2,7 +2,6 @@ package com.akeso.akesobandreader;
 
 
 import android.app.PendingIntent;
-import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.nfc.NdefRecord;
@@ -10,41 +9,21 @@ import android.nfc.NfcAdapter;
 import android.os.Parcelable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.nfc.Tag;
-import android.nfc.tech.*;
-import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.WindowManager;
-import android.widget.ArrayAdapter;
-import android.widget.ListAdapter;
-import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
-import java.io.IOException;
-import java.nio.charset.Charset;
 import java.util.Date;
-import java.util.concurrent.TimeUnit;
 
 import android.nfc.NdefMessage;
 
 public class MainActivity extends AppCompatActivity {
 
-    public String[] userData;
-    public boolean running;
-
 
     private TextView[] displays;
     NfcAdapter nAdapter;
-    Tag tag;
-    Context context;
-    PendingIntent pendingIntent;
-    IntentFilter writeTagFilters[];
 
-
+    //set up the view by checking NFC of the device and catching the textviews
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -66,25 +45,25 @@ public class MainActivity extends AppCompatActivity {
 
         //set up textviews so we can edit what they display
         displays = new TextView[10];
-        displays[0] = (TextView) findViewById(R.id.name1);
-        displays[1] = (TextView) findViewById(R.id.allergies1);
-        displays[2] = (TextView) findViewById(R.id.conditions1);
-        displays[3] = (TextView) findViewById(R.id.medications1);
-        displays[4] = (TextView) findViewById(R.id.contact1);
-        displays[5] = (TextView) findViewById(R.id.contact2);
-        displays[6] = (TextView) findViewById(R.id.insurance1);
-        displays[7] = (TextView) findViewById(R.id.insurance2);
-        displays[8] = (TextView) findViewById(R.id.notes1);
-        displays[9] = (TextView) findViewById(R.id.main);
+        displays[0] = findViewById(R.id.name1);
+        displays[1] = findViewById(R.id.allergies1);
+        displays[2] = findViewById(R.id.conditions1);
+        displays[3] = findViewById(R.id.medications1);
+        displays[4] = findViewById(R.id.contact1);
+        displays[5] = findViewById(R.id.contact2);
+        displays[6] = findViewById(R.id.insurance1);
+        displays[7] = findViewById(R.id.insurance2);
+        displays[8] = findViewById(R.id.notes1);
+        displays[9] = findViewById(R.id.main);
 
 
 
     }
 
-
+    //handles when an nfc tag is tapped to the phone
     @Override
     protected void onNewIntent(Intent intent){
-        Toast.makeText(this, "NFC Tag Found", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Akeso Band Found", Toast.LENGTH_SHORT).show();
         super.onNewIntent(intent);
         Parcelable[] raw = intent.getParcelableArrayExtra(nAdapter.EXTRA_NDEF_MESSAGES);
         NdefMessage[] msg = null;
@@ -98,34 +77,28 @@ public class MainActivity extends AppCompatActivity {
         displayScan(msg);
     }
 
-
+    //resumes nfc watching when navigating back to the app
     @Override
     protected void onResume(){
         Intent intent = new Intent(this, MainActivity.class);
         intent.addFlags(Intent.FLAG_RECEIVER_REPLACE_PENDING);
-
-        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0,
-                intent, 0);
+        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, 0);
         IntentFilter[] intentFilter = new IntentFilter[] {};
-
-        nAdapter.enableForegroundDispatch(this, pendingIntent, intentFilter,
-                null);
-
+        nAdapter.enableForegroundDispatch(this, pendingIntent, intentFilter, null);
         super.onResume();
     }
 
+    //pauses nfc when leaving the app
     @Override
     protected void onPause() {
-
         nAdapter.disableForegroundDispatch(this);
-
         super.onPause();
     }
 
 
 
 
-
+    //responsible for reading the scanned nfc tag, making sure its an Akeso band, and then displaying the information scanned
     private void displayScan(NdefMessage[] msgs){
         if (msgs == null || msgs.length == 0){
             return;
@@ -142,6 +115,7 @@ public class MainActivity extends AppCompatActivity {
             String text = new String(payload);
             text = text.substring(3,text.length());
             displays[i].setText(text);
+            displays[i].setBackgroundResource(R.color.highlight);
         }
 
         Date date = new Date();
@@ -150,14 +124,16 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    //handles the clear button
     public void toClear(View v){
         clear();
     }
 
+    //clears the textviews
     public void clear(){
         for (int i = 0; i<9; i++){
             displays[i].setText("");
-
+            displays[i].setBackgroundResource(R.color.whit);
         }
         displays[9].setText(R.string.waiting);
     }
